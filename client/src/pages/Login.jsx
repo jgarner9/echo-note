@@ -2,14 +2,18 @@ import authenticate from "../controllers/authenticate";
 import { Link } from "react-router-dom";
 import "../stylesheets/Login.css";
 import { useState } from "react";
+import logo from "../assets/logo_light.svg";
 
 const Login = () => {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div id="login-page-container">
+      <Link to="/home">
+        <img src={logo} alt="logo" id="logo" />
+      </Link>
+      <h1 id="echo-note-title">Echo Note</h1>
       <div id="login-element-container">
-        <h1 id="echo-note-title">Echo Note</h1>
         <h2 id="login-title">Login</h2>
         <h1 id="invalid-login-error" hidden>
           Invalid Login Credentials: Please try again.
@@ -41,9 +45,12 @@ const Login = () => {
             required
           />
           <div id="show-password">
-            <input type="checkbox" onClick={() => {
-              showPassword ? setShowPassword(false) : setShowPassword(true)
-            }} />
+            <input
+              type="checkbox"
+              onClick={() => {
+                showPassword ? setShowPassword(false) : setShowPassword(true);
+              }}
+            />
             <h3 id="show-password-text">Show Password</h3>
           </div>
           <input
@@ -53,7 +60,11 @@ const Login = () => {
             className="button"
           />
         </form>
-        <Link to="/signup" id="signup-button">
+        <Link
+          to="/signup"
+          className="hover-underline-animation"
+          id="signup-button"
+        >
           Sign Up
         </Link>
       </div>

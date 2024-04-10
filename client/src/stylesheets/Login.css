@@ -1,5 +1,6 @@
 #login-page-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -15,16 +16,24 @@
   width: 425px;
   height: 425px;
   border-radius: 10px;
-  top: 150px;
+  top: 110px;
 }
 
 #echo-note-title {
-  text-decoration: underline;
+  font-weight: 50;
+}
+
+#logo {
+  position: absolute;
+  left: 35px;
+  top: 20px;
+  width: 64px;
+  height: 64px;
 }
 
 #login-title {
   position: relative;
-  bottom: 25px;
+  bottom: 40px;
 }
 
 #invalid-login-error {
@@ -38,7 +47,7 @@
 
 #login-form {
   position: relative;
-  bottom: 30px;
+  bottom: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -58,6 +67,12 @@
 
 #login-button {
   align-self: center;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out;
+}
+
+#login-button:hover {
+  box-shadow: 1px 1px 8px grey;
 }
 
 #signup-button {
@@ -68,6 +83,12 @@
 
 .input-field {
   width: 250px;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in;
+}
+
+.input-field:focus {
+  box-shadow: 1px 1px 8px 1px grey;
 }
 
 input {
