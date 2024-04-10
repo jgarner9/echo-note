@@ -26,7 +26,7 @@
 #signup-title {
   position: relative;
   font-size: x-large;
-  bottom: 30px;
+  bottom: 22px;
 }
 
 #logo {
@@ -55,8 +55,8 @@
 }
 
 #login-page-button {
-  position: relative;
-  bottom: 10px;
+  position: absolute;
+  bottom: 27px;
   font-size: small;
 }
 

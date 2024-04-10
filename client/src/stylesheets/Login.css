@@ -76,8 +76,8 @@
 }
 
 #signup-page-button {
-  position: relative;
-  bottom: 10px;
+  position: absolute;
+  bottom: 27px;
   font-size: small;
 }
 
