@@ -63,7 +63,7 @@ const Login = () => {
         <Link
           to="/signup"
           className="hover-underline-animation"
-          id="signup-button"
+          id="signup-page-button"
         >
           Sign Up
         </Link>

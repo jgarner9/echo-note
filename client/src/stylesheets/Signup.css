@@ -1,0 +1,69 @@
+#signup-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#signup-element-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #98bad5;
+  width: 425px;
+  height: 425px;
+  border-radius: 10px;
+  top: 110px;
+}
+
+#echo-note-title {
+  font-weight: 50;
+}
+
+#signup-title {
+  position: relative;
+  font-size: x-large;
+  bottom: 30px;
+}
+
+#logo {
+  position: absolute;
+  left: 35px;
+  top: 20px;
+  width: 64px;
+  height: 64px;
+}
+
+#signup-form {
+  position: relative;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#signup-button {
+  align-self: center;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out;
+}
+
+#signup-button:hover {
+  box-shadow: 1px 1px 8px grey;
+}
+
+#login-page-button {
+  position: relative;
+  bottom: 10px;
+  font-size: small;
+}
+
+input {
+  margin: 10px 0;
+}
+
+label {
+  font-size: smaller;
+}
