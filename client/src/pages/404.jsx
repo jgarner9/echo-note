@@ -1,3 +1,5 @@
+import "../stylesheets/404.css";
+
 const NotFound = () => {
   return (
     <>

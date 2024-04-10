@@ -1,0 +1,26 @@
+* {
+  padding: none;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  font-family: "Comfortaa", monospace;
+  color: black;
+}
+
+body {
+  background-color: #c6d3e3;
+}
+
+.button {
+  background-color: #304674;
+  height: 35px; 
+  width: 100px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.input-field {
+  border-radius: 5px;
+  height: 28px;
+  padding-left: 6px;
+}

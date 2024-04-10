@@ -3,7 +3,8 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import NotFound from "./pages/404";
-import loggedIn from "./controllers/loggedIn"
+import loggedIn from "./controllers/loggedIn";
+import "./stylesheets/App.css"
 
 export default function App() {
   return (
