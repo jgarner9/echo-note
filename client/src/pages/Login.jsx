@@ -32,6 +32,7 @@ const Login = () => {
             className="input-field"
             placeholder="Enter your username"
             autoComplete="off"
+            autoFocus
             required
           />
           <label>Password:</label>

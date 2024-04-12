@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "../stylesheets/Signup.css";
 import logo from "../assets/logo_light.svg";
 import { useState } from "react";
+import createUser from "../controllers/createUser";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,7 +15,21 @@ const Signup = () => {
       <h1 id="echo-note-title">Echo Note</h1>
       <div id="signup-element-container">
         <h1 id="signup-title">Sign Up</h1>
-        <form id="signup-form">
+        <form
+          id="signup-form"
+          onSubmit={(e) => {
+            const userCreation = createUser(e);
+            if (userCreation === "passwords_mismatch") {
+              document.getElementById(
+                "passwords-mismatch-error"
+              ).hidden = false;
+            } else if (userCreation === "user_exists") {
+              document.getElementById("username-taken-error").hidden = false;
+            } else {
+              location.assign("/login");
+            }
+          }}
+        >
           <label>Username:</label>
           <input
             type="text"
@@ -22,6 +37,7 @@ const Signup = () => {
             className="input-field"
             name="username"
             placeholder="Enter a username"
+            autoFocus
             required
           />
           <label>Password:</label>
@@ -37,7 +53,7 @@ const Signup = () => {
           <input
             type={showPassword ? "text" : "password"}
             id="confirmation-password-input"
-            name="confirmation-password"
+            name="confirmation_password"
             className="input-field"
             placeholder="Confirm your password"
             required
@@ -58,6 +74,12 @@ const Signup = () => {
             className="button"
           />
         </form>
+        <h3 id="username-taken-error" className="error-message" hidden>
+          This username is already taken, please try again
+        </h3>
+        <h3 id="passwords-mismatch-error" className="error-message" hidden>
+          The passwords do not match, please try again
+        </h3>
         <Link
           to="/login"
           id="login-page-button"

@@ -20,7 +20,9 @@
 }
 
 #echo-note-title {
-  font-weight: 50;
+  font-family: "Ribeye";
+  position: relative;
+  top: 50px;
 }
 
 #logo {
@@ -42,7 +44,7 @@
   background-color: pink;
   border: red 0.5px dotted;
   padding: 3px;
-  bottom: 18px;
+  bottom: -50px;
 }
 
 #login-form {

@@ -20,7 +20,7 @@
 }
 
 #echo-note-title {
-  font-weight: 50;
+  font-family: "Ribeye";
 }
 
 #signup-title {
@@ -46,6 +46,8 @@
 
 #signup-button {
   align-self: center;
+  position: relative;
+  bottom: 10px;
   transition-duration: 100ms;
   transition-timing-function: ease-in-out;
 }
@@ -58,6 +60,14 @@
   position: absolute;
   bottom: 27px;
   font-size: small;
+}
+
+#username-taken-error {
+  bottom: 33.5px;
+}
+
+#passwords-mismatch-error {
+  bottom: 33.5px;
 }
 
 input {

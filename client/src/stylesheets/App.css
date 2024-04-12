@@ -14,7 +14,7 @@ body {
 .button {
   background-color: #304674;
   color: #c6d3e3;
-  height: 37px; 
+  height: 37px;
   width: 100px;
   border-radius: 15px;
   cursor: pointer;
@@ -48,4 +48,13 @@ body {
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.error-message {
+  position: absolute;
+  font-size: small;
+  background-color: pink;
+  border: red 0.5px dotted;
+  padding: 3px;
+  bottom: 48px;
 }

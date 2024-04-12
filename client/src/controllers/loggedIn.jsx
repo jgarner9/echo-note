@@ -1,4 +1,4 @@
-export default function loggedIn(route) {
+export default function loggedIn() {
   const user = localStorage.getItem("user");
   return user ? true : false;
 }
