@@ -4,7 +4,7 @@ import "../stylesheets/Home.css";
 const Home = () => {
   return (
     <div id="home-page-container">
-      <h1>Echo Note</h1>
+      <h1 id="echo-note-title">Echo Note</h1>
       <button
         onClick={(e) => {
           logOut(e);
