@@ -1,11 +1,12 @@
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
 
 //<=============Modules================>
-const express = require("express");
-const morgan = require("morgan");
+import express from "express";
+import morgan from "morgan";
 
 //<=============Routers================>
-const authRouter = require("./routers/authentication");
+import { authRouter } from "./routers/authRouter.mjs";
 
 //express app start up
 const app = express();
