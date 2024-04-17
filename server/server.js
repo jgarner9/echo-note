@@ -1,12 +1,25 @@
 require("dotenv").config();
 
+//<=============Modules================>
 const express = require("express");
-const bodyParser = require("body-parser")
+const morgan = require("morgan");
 
-const app = express()
-const port = process.env.PORT || 3000
+//<=============Routers================>
+const authRouter = require("./routers/authentication");
 
-require("express-debug")(app)
+//express app start up
+const app = express();
+const port = process.env.PORT || 3000;
 
-app.use(express.json())
-app.use(bodyParser)
+//<============Middleware=============>
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan("combined"));
+
+//<============Routes=================>
+app.use("/auth", authRouter);
+
+//listen on port environment variable
+app.listen(port, () => {
+  console.log(`The Aliens: We are listening on port ${port}`);
+});
