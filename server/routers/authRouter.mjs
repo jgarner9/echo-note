@@ -2,18 +2,14 @@ import express from "express";
 const authRouter = express.Router();
 
 import {
-  createUser,
-  authenticate,
   changeUsername,
   changePassword,
   deleteAccount,
 } from "../controllers/auth-controllers.mjs";
+import verifyWebToken from "../controllers/verifyWebToken.mjs";
 
-//TODO: create user route
-authRouter.post("/create-user", (req, res) => createUser(req, res));
-//TODO: authenticate user route
-authRouter.get("/authenticate", (req, res) => authenticate(req, res));
-//TODO: change username route
+authRouter.use((req, res, next) => verifyWebToken(req, res, next));
+
 authRouter.put("/change-username", (req, res) => changeUsername(req, res));
 //TODO: change password route
 authRouter.put("/change-password", (req, res) => changePassword(req, res));

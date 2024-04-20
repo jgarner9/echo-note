@@ -13,13 +13,11 @@ const userSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    required: true,
     default: () => Date.now(),
     immutable: true,
   },
   updatedAt: {
     type: Date,
-    required: true,
     default: () => Date.now(),
   },
 });
