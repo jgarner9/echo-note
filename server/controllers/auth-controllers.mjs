@@ -1,8 +1,7 @@
 import { User } from "../models/User.mjs";
-import { webToken } from "./webToken.mjs";
+import { genWebToken } from "./genWebToken.mjs";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
-import verifyWebToken from "./verifyWebToken.mjs";
 
 export async function createUser(req, res) {
   mongoose.connect(process.env.MONGODB_URI);
@@ -17,7 +16,7 @@ export async function createUser(req, res) {
       hashedPassword: req.body.hashedPassword,
     });
 
-    res.cookie("jwt", webToken({ username: newUser.username }));
+    res.cookie("jwt", genWebToken({ username: newUser.username }));
     res.json({
       user: newUser,
     });
@@ -33,7 +32,7 @@ export async function changeUsername(req, res) {
   const token = req.cookies.jwt;
   const currentUsername = jwt.verify(token, process.env.JWT_SECRET).username;
   const newUsername = req.body.username;
-  
+
   if (!(await User.findOne({ username: currentUsername }))) {
     res.status(409).json({ message: "username already taken" });
   } else {
