@@ -43,5 +43,18 @@ export async function changeUsername(req, res) {
     res.json({ message: updatedUser });
   }
 }
-export function changePassword(req, res) {}
+export async function changePassword(req, res) {
+  mongoose.connect(process.env.MONGODB_URI);
+
+  const token = req.cookies.jwt;
+  const currentUsername = jwt.verify(token, process.env.JWT_SECRET).username;
+
+  const updatedUser = await User.findOneAndUpdate(
+    { username: currentUsername },
+    { hashedPassword: req.body.hashedPassword },
+    { new: true }
+  );
+
+  res.json({ message: updatedUser });
+}
 export function deleteAccount(req, res) {}
