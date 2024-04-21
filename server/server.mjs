@@ -8,7 +8,7 @@ import cookieParser from "cookie-parser";
 
 //<=============Routers================>
 import { authRouter } from "./routers/authRouter.mjs";
-import { createUser } from "./controllers/createUser.mjs";
+import { createUser } from "./controllers/authentication-controllers/createUser.mjs";
 
 //express app start up
 const app = express();

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import getUsername from "./getUsername.mjs";
-import { User } from "../models/User.mjs";
+import getUsername from "../gen-controllers/getUsername.mjs";
+import { User } from "../../models/User.mjs";
 
 export async function changePassword(req, res) {
   mongoose.connect(process.env.MONGODB_URI);

@@ -1,10 +1,10 @@
 import express from "express";
 const authRouter = express.Router();
 
-import { changeUsername } from "../controllers/changeUsername.mjs";
-import { changePassword } from "../controllers/changePassword.mjs";
-import { deleteUser } from "../controllers/deleteUser.mjs";
-import verifyWebToken from "../controllers/verifyWebToken.mjs";
+import { changeUsername } from "../controllers/authentication-controllers/changeUsername.mjs";
+import { changePassword } from "../controllers/authentication-controllers/changePassword.mjs";
+import { deleteUser } from "../controllers/authentication-controllers/deleteUser.mjs";
+import verifyWebToken from "../controllers/token-controllers/verifyWebToken.mjs"
 
 authRouter.use((req, res, next) => verifyWebToken(req, res, next));
 
