@@ -9,7 +9,7 @@ export default async function loginController(e) {
 
   const data = {
     username: username,
-    hashedPassword: password,
+    password: password,
   };
 
   const loginRequest = await fetch("http://localhost:3000/auth/login", {
@@ -40,28 +40,4 @@ export default async function loginController(e) {
     localStorage.setItem("username", await loginRequest.json());
     location.assign("/home");
   }
-
-  //   //logic to check mock credentials
-  //   if (mockDb[username] === password) {
-  //     //if true, set localStorage item and reload the page for routing logic to redirect
-  //     localStorage.setItem("user", `${username.value},${password.value}`);
-  //     location.reload();
-  //   } else {
-  //     //if false, show the invalid error
-  //     document.getElementById("invalid-login-error").hidden = false;
-
-  //     //select login button for invalid login animation
-  //     const loginButtonElement = document.getElementById("login-button");
-
-  //     //animate.css logic for invalid login animation
-  //     loginButtonElement.style.setProperty("--animate-duration", "0.5s");
-  //     loginButtonElement.classList.add("animate__animated", "animate__headShake");
-  //     loginButtonElement.addEventListener("animationend", () => {
-  //       loginButtonElement.style.removeProperty("--animate-duration");
-  //       loginButtonElement.classList.remove(
-  //         "animate__animated",
-  //         "animate__headShake"
-  //       );
-  //     });
-  //   }
 }
