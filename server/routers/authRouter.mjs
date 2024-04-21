@@ -1,11 +1,8 @@
 import express from "express";
 const authRouter = express.Router();
 
-import {
-  changeUsername,
-  changePassword,
-  deleteAccount,
-} from "../controllers/auth-controllers.mjs";
+import { changeUsername } from "../controllers/changeUsername.mjs";
+import { changePassword } from "../controllers/changePassword.mjs";
 import verifyWebToken from "../controllers/verifyWebToken.mjs";
 
 authRouter.use((req, res, next) => verifyWebToken(req, res, next));

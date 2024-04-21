@@ -8,7 +8,7 @@ import cookieParser from "cookie-parser";
 
 //<=============Routers================>
 import { authRouter } from "./routers/authRouter.mjs";
-import { createUser } from "./controllers/auth-controllers.mjs";
+import { createUser } from "./controllers/createUser.mjs";
 
 //express app start up
 const app = express();
@@ -23,7 +23,7 @@ app.use(cookieParser());
 //<============Routes=================>
 app.use("/auth", authRouter);
 
-app.post("/create-user", (req, res) => createUser(req, res))
+app.post("/create-user", (req, res) => createUser(req, res));
 
 //listen on port environment variable
 app.listen(port, () => {
