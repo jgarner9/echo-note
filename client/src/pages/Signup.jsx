@@ -17,8 +17,8 @@ const Signup = () => {
         <h1 id="signup-title">Sign Up</h1>
         <form
           id="signup-form"
-          onSubmit={(e) => {
-            const userCreation = createUser(e);
+          onSubmit={async (e) => {
+            const userCreation = await createUser(e);
             if (userCreation === "passwords_mismatch") {
               document.getElementById(
                 "passwords-mismatch-error"
@@ -74,11 +74,11 @@ const Signup = () => {
             className="button"
           />
         </form>
-        <h3 id="username-taken-error" className="error-message" hidden>
-          This username is already taken, please try again
-        </h3>
         <h3 id="passwords-mismatch-error" className="error-message" hidden>
           The passwords do not match, please try again
+        </h3>
+        <h3 id="username-taken-error" className="error-message" hidden>
+          This username is already taken, please try again
         </h3>
         <Link
           to="/login"

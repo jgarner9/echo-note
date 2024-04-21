@@ -22,6 +22,6 @@ export async function createUser(req, res) {
   } else {
     //send resource already exists error if username exists
     res.status(409);
-    res.send();
+    res.json({ message: "Username already exists" });
   }
 }

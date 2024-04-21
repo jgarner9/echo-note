@@ -1,34 +1,35 @@
-export default function createUser(e) {
+import bcrypt from "bcryptjs";
+
+export default async function createUser(e) {
   e.preventDefault();
   //extract form data, call for mockDb, compare, set localStorage or throw errors
-  const [username, password, confirmation_password] = [
+  const [username, password, confirmPassword] = [
     e.target.username.value,
     e.target.password.value,
     e.target.confirmation_password.value,
   ];
-  if (password !== confirmation_password) {
-    console.log(
-      `Passwords did not match: ${password} != ${confirmation_password}`
-    );
-    return "passwords_mismatch";
-  } else {
-    document.getElementById("passwords-mismatch-error").hidden = true;
-    let mockDb = localStorage.getItem("users");
-    mockDb === null ? (mockDb = {}) : (mockDb = JSON.parse(mockDb));
 
-    //check for username
-    if (mockDb[username] === undefined) {
-      document.getElementById("username-taken-error").hidden = true;
-      mockDb[username] = password;
-      console.log(mockDb);
-    } else {
+  if (password === confirmPassword) {
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(password, salt);
+    const data = {
+      username: username,
+      hashedPassword: hashedPassword,
+    };
+    console.log(data);
+    const createUserRequest = await fetch("http://localhost:3000/create-user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (createUserRequest.status === 409) {
       console.log(`${username} is already taken`);
       return "user_exists";
     }
-
-    console.log(`mockDb: ${JSON.stringify(mockDb)}`);
-    console.log(`username: ${username} password: ${password}`);
-
-    localStorage.setItem("users", JSON.stringify(mockDb));
+  } else {
+    console.log(`Passwords did not match: ${password} != ${confirmPassword}`);
+    return "passwords_mismatch";
   }
 }

@@ -1,4 +1,4 @@
-import authenticate from "../controllers/authenticate";
+import loginController from "../controllers/loginController.jsx";
 import { Link } from "react-router-dom";
 import "../stylesheets/Login.css";
 import { useState } from "react";
@@ -21,7 +21,7 @@ const Login = () => {
         <form
           id="login-form"
           onSubmit={(e) => {
-            authenticate(e);
+            loginController(e);
           }}
         >
           <label>Username:</label>

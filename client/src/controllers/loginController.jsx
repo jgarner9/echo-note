@@ -1,4 +1,4 @@
-export default function authenticate(e) {
+export default function loginController(e) {
   e.preventDefault();
 
   //mockDb for credential flow, parses from a stored JSON string

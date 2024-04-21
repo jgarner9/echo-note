@@ -5,6 +5,7 @@ dotenv.config();
 import express from "express";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 //<=============Routers================>
 import { authRouter } from "./routers/authRouter.mjs";
@@ -19,11 +20,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
 app.use(cookieParser());
+app.use(cors());
 
 //<============Routes=================>
+app.post("/create-user", (req, res) => createUser(req, res));
 app.use("/auth", authRouter);
 
-app.post("/create-user", (req, res) => createUser(req, res));
+app.get("/", (req, res) => res.json({ message: "test" }));
 
 //listen on port environment variable
 app.listen(port, () => {
