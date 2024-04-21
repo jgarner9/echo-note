@@ -17,7 +17,7 @@ export async function createUser(req, res) {
 
     res.cookie("jwt", genWebToken({ username: newUser.username }));
     res.json({
-      user: newUser,
+      username: newUser.username,
     });
   } else {
     //send resource already exists error if username exists

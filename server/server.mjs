@@ -9,6 +9,7 @@ import cors from "cors";
 
 //<=============Routers================>
 import { authRouter } from "./routers/authRouter.mjs";
+import { userRouter } from "./routers/userRouter.mjs";
 import { createUser } from "./controllers/authentication-controllers/createUser.mjs";
 
 //express app start up
@@ -25,8 +26,7 @@ app.use(cors());
 //<============Routes=================>
 app.post("/create-user", (req, res) => createUser(req, res));
 app.use("/auth", authRouter);
-
-app.get("/", (req, res) => res.json({ message: "test" }));
+app.use("/user", userRouter);
 
 //listen on port environment variable
 app.listen(port, () => {

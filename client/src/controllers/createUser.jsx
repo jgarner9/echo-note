@@ -26,10 +26,15 @@ export default async function createUser(e) {
     });
     if (createUserRequest.status === 409) {
       console.log(`${username} is already taken`);
-      return "user_exists";
+      document.getElementById("username-taken-error").hidden = false;
+      return;
+    } else {
+      location.assign("/login");
+      return;
     }
   } else {
     console.log(`Passwords did not match: ${password} != ${confirmPassword}`);
-    return "passwords_mismatch";
+    document.getElementById("passwords-mismatch-error").hidden = false;
+    return;
   }
 }

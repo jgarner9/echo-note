@@ -18,16 +18,7 @@ const Signup = () => {
         <form
           id="signup-form"
           onSubmit={async (e) => {
-            const userCreation = await createUser(e);
-            if (userCreation === "passwords_mismatch") {
-              document.getElementById(
-                "passwords-mismatch-error"
-              ).hidden = false;
-            } else if (userCreation === "user_exists") {
-              document.getElementById("username-taken-error").hidden = false;
-            } else {
-              location.assign("/login");
-            }
+            await createUser(e);
           }}
         >
           <label>Username:</label>
