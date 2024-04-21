@@ -2,7 +2,7 @@ import { genWebToken } from "../token-controllers/genWebToken.mjs";
 import { User } from "../../models/User.mjs";
 import mongoose from "mongoose";
 
-export async function createUser(req, res) {
+export default async function createUser(req, res) {
   mongoose.connect(process.env.MONGODB_URI);
 
   const userExists = (await User.findOne({ username: req.body.username }))

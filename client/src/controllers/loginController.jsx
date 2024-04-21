@@ -37,7 +37,8 @@ export default async function loginController(e) {
       );
     });
   } else {
-    localStorage.setItem("username", await loginRequest.json());
+    const response = await loginRequest.json()
+    localStorage.setItem("username", response.username);
     location.assign("/home");
   }
 }

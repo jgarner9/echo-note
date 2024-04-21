@@ -1,5 +1,7 @@
-export default function logOut(e) {
+export default async function logOut(e) {
   e.preventDefault();
-  localStorage.clear();
-  location.reload();
+
+  const logoutRequest = await fetch("http://localhost:3000/auth/logout");
+  if (logoutRequest.status === 204) localStorage.clear();
+  location.assign("/login");
 }

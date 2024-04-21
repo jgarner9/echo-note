@@ -17,7 +17,7 @@ export default async function createUser(e) {
       hashedPassword: hashedPassword,
     };
     console.log(data);
-    const createUserRequest = await fetch("http://localhost:3000/create-user", {
+    const createUserRequest = await fetch("http://localhost:3000/auth/create-user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

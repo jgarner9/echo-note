@@ -10,7 +10,6 @@ import cors from "cors";
 //<=============Routers================>
 import { authRouter } from "./routers/authRouter.mjs";
 import { userRouter } from "./routers/userRouter.mjs";
-import { createUser } from "./controllers/authentication-controllers/createUser.mjs";
 
 //express app start up
 const app = express();
@@ -24,7 +23,6 @@ app.use(cookieParser());
 app.use(cors());
 
 //<============Routes=================>
-app.post("/create-user", (req, res) => createUser(req, res));
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
 

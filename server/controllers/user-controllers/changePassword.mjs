@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import getUsername from "../gen-controllers/getUsername.mjs";
+import getUsername from "../general-controllers/getUsername.mjs";
 import { User } from "../../models/User.mjs";
 
 export async function changePassword(req, res) {

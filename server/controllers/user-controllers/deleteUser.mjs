@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { User } from "../../models/User.mjs";
-import getUsername from "../gen-controllers/getUsername.mjs";
+import getUsername from "../general-controllers/getUsername.mjs";
 
 export async function deleteUser(req, res) {
   mongoose.connect(process.env.MONGODB_URI);
