@@ -31,6 +31,7 @@ const Signup = () => {
             className="input-field"
             name="username"
             placeholder="Enter a username"
+            autoComplete="off"
             autoFocus
             disabled={isLoading}
             required
