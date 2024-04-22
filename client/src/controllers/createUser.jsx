@@ -16,7 +16,7 @@ export default async function createUser(e) {
       username: username,
       hashedPassword: hashedPassword,
     };
-    console.log(data);
+
     const createUserRequest = await fetch("http://localhost:3000/auth/create-user", {
       method: "POST",
       headers: {
@@ -24,6 +24,7 @@ export default async function createUser(e) {
       },
       body: JSON.stringify(data),
     });
+    
     if (createUserRequest.status === 409) {
       console.log(`${username} is already taken`);
       document.getElementById("username-taken-error").hidden = false;
