@@ -38,6 +38,8 @@ const Signup = () => {
             className="input-field"
             name="password"
             placeholder="Enter a password"
+            minLength="5"
+            maxLength="32"
             required
           />
           <label>Confirm Password:</label>
@@ -47,6 +49,8 @@ const Signup = () => {
             name="confirmation_password"
             className="input-field"
             placeholder="Confirm your password"
+            minLength="5"
+            maxLength="32"
             required
           />
           <div id="show-password">
@@ -65,6 +69,9 @@ const Signup = () => {
             className="button"
           />
         </form>
+        <h3 id="password-too-short-error" className="error-message" hidden>
+          The password must be at least 5 characters long
+        </h3>
         <h3 id="passwords-mismatch-error" className="error-message" hidden>
           The passwords do not match, please try again
         </h3>

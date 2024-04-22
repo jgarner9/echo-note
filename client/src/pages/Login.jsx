@@ -20,8 +20,8 @@ const Login = () => {
         </h1>
         <form
           id="login-form"
-          onSubmit={(e) => {
-            loginController(e);
+          onSubmit={async (e) => {
+            await loginController(e);
           }}
         >
           <label>Username:</label>

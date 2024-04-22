@@ -6,8 +6,8 @@ const Home = () => {
     <div id="home-page-container">
       <h1 id="echo-note-title">Echo Note</h1>
       <button
-        onClick={(e) => {
-          logOut(e);
+        onClick={async (e) => {
+          await logOut(e);
         }}
       >
         Log Out
