@@ -6,6 +6,7 @@ import logo from "../assets/logo_light.svg";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
   return (
     <div id="login-page-container">
@@ -21,7 +22,9 @@ const Login = () => {
         <form
           id="login-form"
           onSubmit={async (e) => {
+            setIsLoading(true);
             await loginController(e);
+            setIsLoading(false);
           }}
         >
           <label>Username:</label>
@@ -33,6 +36,7 @@ const Login = () => {
             placeholder="Enter your username"
             autoComplete="off"
             autoFocus
+            disabled={isLoading}
             required
           />
           <label>Password:</label>
@@ -43,11 +47,13 @@ const Login = () => {
             className="input-field"
             placeholder="Enter your password"
             autoComplete="off"
+            disabled={isLoading}
             required
           />
           <div id="show-password">
             <input
               type="checkbox"
+              disabled={isLoading}
               onClick={() => {
                 showPassword ? setShowPassword(false) : setShowPassword(true);
               }}
@@ -59,6 +65,7 @@ const Login = () => {
             id="login-button"
             value="Login"
             className="button"
+            disabled={isLoading}
           />
         </form>
         <Link

@@ -6,6 +6,7 @@ import createUser from "../controllers/createUser";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div id="signup-page-container">
@@ -18,7 +19,9 @@ const Signup = () => {
         <form
           id="signup-form"
           onSubmit={async (e) => {
+            setIsLoading(true)
             await createUser(e);
+            setIsLoading(false)
           }}
         >
           <label>Username:</label>
@@ -29,6 +32,7 @@ const Signup = () => {
             name="username"
             placeholder="Enter a username"
             autoFocus
+            disabled={isLoading}
             required
           />
           <label>Password:</label>
@@ -40,6 +44,7 @@ const Signup = () => {
             placeholder="Enter a password"
             minLength="5"
             maxLength="32"
+            disabled={isLoading}
             required
           />
           <label>Confirm Password:</label>
@@ -51,11 +56,13 @@ const Signup = () => {
             placeholder="Confirm your password"
             minLength="5"
             maxLength="32"
+            disabled={isLoading}
             required
           />
           <div id="show-password">
             <input
               type="checkbox"
+              disabled={isLoading}
               onClick={() => {
                 showPassword ? setShowPassword(false) : setShowPassword(true);
               }}
@@ -67,6 +74,7 @@ const Signup = () => {
             id="signup-button"
             value="Sign Up"
             className="button"
+            disabled={isLoading}
           />
         </form>
         <h3 id="password-too-short-error" className="error-message" hidden>
